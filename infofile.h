@@ -3,7 +3,6 @@
 #include <QString>
 #include <QFileInfo>
 
-
 class InfoFile
 {
    private:
@@ -20,8 +19,10 @@ public:
     QString get_name();
     bool get_state();
 
+    int get_actual_size();
+    bool get_actual_state();
 
-
+    void UpdateInfo();
 
 };
 
