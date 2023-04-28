@@ -5,15 +5,13 @@
 
 class InfoFile
 {
-   private:
+private:
     int size;
     QString name;
     bool state;
 
 public:
-    InfoFile();
     InfoFile(QString _name);
-
 
     int get_size();
     QString get_name();
@@ -22,7 +20,7 @@ public:
     int get_actual_size();
     bool get_actual_state();
 
-    void UpdateInfo();
+    void update_info();
 
 };
 

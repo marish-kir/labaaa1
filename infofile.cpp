@@ -1,12 +1,9 @@
 #include "infofile.h"
 
-InfoFile::InfoFile()
-{
-
-}
 InfoFile::InfoFile(QString _name)
 {
     QFileInfo info(_name);
+    name = _name;
     size = info.size();
     state = info.exists();
 }
@@ -33,7 +30,7 @@ bool InfoFile::get_actual_state()
     QFileInfo info(name);
     return info.exists();
 }
-void InfoFile::UpdateInfo()
+void InfoFile::update_info()
 {
     QFileInfo info(name);
     size = info.size();
