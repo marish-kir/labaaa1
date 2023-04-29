@@ -36,3 +36,14 @@ void InfoFile::update_info()
     size = info.size();
     state = info.exists();
 }
+bool InfoFile::is_file()
+{
+    QFileInfo info(name);
+    return info.isFile();
+}
+bool InfoFile::operator==(const InfoFile& file)const {
+
+    if (file.name == name)
+        return true;
+    return false;
+}

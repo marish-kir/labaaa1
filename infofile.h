@@ -21,6 +21,8 @@ public:
     bool get_actual_state();
 
     void update_info();
+    bool is_file();
+    bool operator==(const InfoFile& file)const;
 
 };
 

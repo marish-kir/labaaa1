@@ -11,6 +11,7 @@ public:
     FileTracker();
     void add_file(QString _name);
     void monitor();
+    QList<QString> get_files_info();
 };
 
 #endif // FILETRACKER_H
