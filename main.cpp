@@ -6,7 +6,7 @@
 #include <thread>
 #include <chrono>
 
-void print_files(FileTracker track){
+void print_files(FileTracker&track){
     QTextStream out(stdout);
     QList<QString> files = track.get_files_info();
     for(int i=0; i<files.size(); i++){
