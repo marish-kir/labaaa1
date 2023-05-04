@@ -14,18 +14,21 @@ void FileTracker::add_file(QString _name)
 }
 void FileTracker::monitor()
 {
-    QTextStream out(stdout);
     for(int i=0; i<files.size(); i++)
     {
         if(files[i].get_state()!=files[i].get_actual_state())
         {
+            if(files[i].get_actual_state())
+                emit file_created(files[i].get_name(),files[i].get_actual_size());
+            else
+                emit file_deleted(files[i].get_name());
+
            emit update_file(files[i]);
-           out<<files[i].get_name()<<" state changed"<<endl;
         }
         else if(files[i].get_size()!=files[i].get_actual_size())
         {
             emit update_file(files[i]);
-            out<<files[i].get_name()<<" size changed"<<endl;
+            emit size_changed(files[i].get_name(),files[i].get_size());
         }
 
     }

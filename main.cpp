@@ -5,6 +5,7 @@
 #include <QTextStream>
 #include <thread>
 #include <chrono>
+#include "output.h"
 
 void print_files(FileTracker&track){
     QTextStream out(stdout);
@@ -17,6 +18,10 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     FileTracker track;
+    Output out;
+    QObject::connect(&track, &FileTracker::size_changed,&out, &Output::size_changed_print);
+    QObject::connect(&track, &FileTracker::file_deleted,&out, &Output::file_deleted_print);
+    QObject::connect(&track, &FileTracker::file_created,&out, &Output::file_created_print);
     track.add_file("C:\\filesForLab\\file1.txt");
     track.add_file("C:\\filesForLab\\file1.txt");
     track.add_file("C:\\filesForLab\\file2.txt");

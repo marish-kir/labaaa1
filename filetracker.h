@@ -16,6 +16,9 @@ public:
     QList<QString> get_files_info();
 signals:
     void file_changed(InfoFile& file);
+    void size_changed(QString name, int size);
+    void file_deleted(QString name);
+    void file_created(QString name, int size);
 public slots:
     void update_file(InfoFile& file);
 

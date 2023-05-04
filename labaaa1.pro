@@ -16,8 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     infofile.cpp \
-    filetracker.cpp
+    filetracker.cpp \
+    output.cpp
 
 HEADERS += \
     infofile.h \
-    filetracker.h
+    filetracker.h \
+    output.h
