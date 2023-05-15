@@ -1,8 +1,5 @@
 #include <QCoreApplication>
 #include "filetracker.h"
-#include <QList>
-#include <QString>
-#include <QTextStream>
 #include <thread>
 #include <chrono>
 #include "output.h"

@@ -3,11 +3,12 @@
 
 FileTracker::FileTracker()
 {
-    QObject::connect(this, &FileTracker::file_changed, &FileTracker::update_file);
+
 }
 void FileTracker::add_file(QString _name)
 {
     InfoFile file(_name);
+
 
     if(file.is_file() && !files.contains(file))
         files.append(file);
@@ -23,11 +24,11 @@ void FileTracker::monitor()
             else
                 emit file_deleted(files[i].get_name());
 
-           emit update_file(files[i]);
+           update_file(files[i]);
         }
         else if(files[i].get_size()!=files[i].get_actual_size())
         {
-            emit update_file(files[i]);
+            update_file(files[i]);
             emit size_changed(files[i].get_name(),files[i].get_size());
         }
 
