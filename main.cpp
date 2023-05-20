@@ -14,7 +14,7 @@ void print_files(FileTracker&track){
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    FileTracker track;
+    FileTracker& track = FileTracker::Instance();
     Output out;
     QObject::connect(&track, &FileTracker::size_changed,&out, &Output::size_changed_print);
     QObject::connect(&track, &FileTracker::file_deleted,&out, &Output::file_deleted_print);

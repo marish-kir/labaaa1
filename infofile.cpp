@@ -30,8 +30,7 @@ bool InfoFile::get_actual_state()
     QFileInfo info(name);
     return info.exists();
 }
-void InfoFile::update_info()
-{
+void InfoFile::update_info(){
     QFileInfo info(name);
     size = info.size();
     state = info.exists();
